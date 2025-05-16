@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mauro Sandro dos Reis</title>
   <meta name="description" content="Site pessoal de Mauro Sandro dos Reis, pesquisador e especialista em eletrônica de potência, microrredes e energias renováveis.">
+
+  <meta property="og:title" content="Mauro Sandro dos Reis - Pesquisador e Professor">
+  <meta property="og:description" content="Site pessoal de Mauro Sandro dos Reis, especialista em eletrônica de potência, microrredes e energias renováveis.">
+  <meta property="og:image" content="https://mauroreis.app/assets/img/foto-perfil-mauroreis.webp">
+  <meta property="og:url" content="https://mauroreis.app/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@maurosreis">
+  <meta name="twitter:title" content="Mauro Sandro dos Reis - Pesquisador e Professor">
+  <meta name="twitter:description" content="Site pessoal de Mauro Sandro dos Reis, especialista em eletrônica de potência, microrredes e energias renováveis.">
+  <meta name="twitter:image" content="https://mauroreis.app/assets/img/foto-perfil-mauroreis.webp">
+
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -67,7 +80,7 @@
       <p>📍 <strong>Local:</strong> Rio de Janeiro, Brasil</p>
       <p>
         <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/maurosreis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/maurosreis/</a><br>
+        <a href="https://www.linkedin.com/in/maurosreis/" target="_blank" rel="noopener noreferrer">linkedin.com/in/maurosreis</a><br>
         <strong>GitHub:</strong>
         <a href="https://github.com/maurosreis" target="_blank" rel="noopener noreferrer">github.com/maurosreis</a>
       </p>
@@ -75,7 +88,10 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Mauro Sandro dos Reis. Todos os direitos reservados.</p>
+    <p>&copy; <span id="currentYear"></span> Mauro Sandro dos Reis. Todos os direitos reservados.</p>
+    <script>
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
   </footer>
 </body>
 </html>

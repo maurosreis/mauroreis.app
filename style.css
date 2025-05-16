@@ -5,67 +5,87 @@
   padding: 0;
 }
 
+/* Se você não definir um font-size base no html, 1rem = 16px (padrão da maioria dos navegadores) */
+/* Exemplo de como definir uma base para 1rem = 10px:
+html {
+  font-size: 62.5%; 
+} 
+/* Se fizer isso, todos os valores rem abaixo precisariam ser recalculados (ex: 1.6rem se antes era 16px) */
+
 body {
-  font-family: Arial, sans-serif;
-  padding: 2em;
+  font-family: Arial, sans-serif; /* Tamanho da fonte herdado ou padrão do navegador */
+  padding: 2rem; /* Antes: 2em. Relativo à raiz para consistência */
   background-color: #f5f5f5;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.6; /* Unitless line-height é bom, relativo ao font-size do elemento */
 }
 
 header, section, footer {
-  max-width: 800px;
+  max-width: 50rem; /* Antes: 800px. 800/16 = 50rem */
   margin: auto;
   background: #fff;
-  padding: 1.5em;
-  margin-bottom: 1em;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  padding: 1.5rem; /* Antes: 1.5em. Relativo à raiz */
+  margin-bottom: 1rem; /* Antes: 1em. Relativo à raiz */
+  border-radius: 0.5rem; /* Antes: 8px. 8/16 = 0.5rem */
+  box-shadow: 0 0 0.625rem rgba(0,0,0,0.05); /* Antes: 10px. 10/16 = 0.625rem */
 }
 
 h1, h2 {
   color: #005a8d;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5em; /* Mantido em 'em' para ser relativo ao font-size do próprio cabeçalho, o que geralmente é desejável */
+  /* Se não houver font-size explícito em h1, h2, ele herda ou usa o padrão do user-agent.
+     Se você definir font-size para h1, h2 em rem, este margin-bottom continuará proporcional. */
 }
 
+/* Exemplo: Definindo font-sizes com rem (opcional, já que não estavam antes)
+h1 {
+  font-size: 2rem; 
+}
+h2 {
+  font-size: 1.5rem; 
+}
+p, li {
+  font-size: 1rem; 
+*/
+
 ul {
-  padding-left: 1.2em;
-  margin-bottom: 1em;
+  padding-left: 1.2em; /* Mantido em 'em' para ser relativo ao font-size do 'ul' ou seus 'li', bom para indentação */
+  margin-bottom: 1rem; /* Antes: 1em. Relativo à raiz para consistência com outros espaçamentos de bloco */
 }
 
 .perfil-container {
   display: flex;
   align-items: center;
-  gap: 1.5em;
+  gap: 1.5rem; /* Antes: 1.5em. Relativo à raiz para espaçamento consistente */
   flex-wrap: wrap;
 }
 
 .foto-perfil {
-  width: 160px;
+  width: 10rem; /* Antes: 160px. 160/16 = 10rem */
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 0.75rem; /* Antes: 12px. 12/16 = 0.75rem */
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); /* Antes: 4px 12px. 4/16=0.25rem, 12/16=0.75rem */
   flex-shrink: 0;
 }
 
 .perfil-info {
   flex: 1;
-  min-width: 200px;
+  min-width: 12.5rem; /* Antes: 200px. 200/16 = 12.5rem */
 }
 
 nav {
-  max-width: 800px;
+  max-width: 50rem; /* Antes: 800px. 800/16 = 50rem */
   margin: auto;
-  margin-bottom: 1em;
+  margin-bottom: 1rem; /* Antes: 1em. Relativo à raiz */
   background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  padding: 1em;
+  border-radius: 0.5rem; /* Antes: 8px. 8/16 = 0.5rem */
+  box-shadow: 0 0 0.625rem rgba(0,0,0,0.05); /* Antes: 10px. 10/16 = 0.625rem */
+  padding: 1rem; /* Antes: 1em. Relativo à raiz */
   text-align: center;
 }
 
 nav a {
-  margin: 0 1em;
+  margin: 0 1em; /* Mantido em 'em' para que o espaçamento seja relativo ao tamanho da fonte do próprio link */
   text-decoration: none;
   color: #005a8d;
   font-weight: bold;
@@ -74,18 +94,19 @@ nav a {
 
 nav a:focus, nav a:hover {
   text-decoration: underline;
-  outline: 2px solid #005a8d;
-  outline-offset: 4px;
+  outline: 0.125rem solid #005a8d; /* Antes: 2px. 2/16 = 0.125rem */
+  outline-offset: 0.25rem; /* Antes: 4px. 4/16 = 0.25rem */
 }
 
+/* Estilo de foco global, boa prática! */
 :focus {
-  outline: 2px dashed #005a8d;
-  outline-offset: 4px;
+  outline: 0.125rem dashed #005a8d; /* Antes: 2px. 2/16 = 0.125rem */
+  outline-offset: 0.25rem; /* Antes: 4px. 4/16 = 0.25rem */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) { /* Antes: 600px. 600/16 = 37.5rem. Usar rem/em para breakpoints também é uma opção. */
   body {
-    padding: 1em;
+    padding: 1rem; /* Antes: 1em. Relativo à raiz */
   }
   .perfil-container {
     flex-direction: column;
@@ -96,6 +117,6 @@ nav a:focus, nav a:hover {
   }
   nav a {
     display: block;
-    margin: 0.5em 0;
+    margin: 0.5em 0; /* Mantido em 'em' para ser relativo ao font-size do link */
   }
 }
