@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-# Crawl-delay: 10 (considere remover ou ajustar este)
+
 
 Sitemap: https://mauroreis.app/sitemap.xml
